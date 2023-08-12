@@ -37,7 +37,7 @@ const persona = {
 };
 
 const estoEsUnString = JSON.stringify(persona);
-console.log(estoEsUnString);
+//console.log(estoEsUnString);
 
 //console.log(`hola soy ${persona.nombre}`);
 
@@ -78,17 +78,134 @@ const arr = ["Nico", "Perez", "Bariloche"];
 const [primer, segundo, tercer, cuarto] = arr;
 //console.log(cuarto);
 
-// spread operator
+// template literals
 
+// los template strings: `` (backticks) (alt + 96)
+
+const template = `
+  <div>
+    <h1>Hola</h1>
+    <p>Como estas?</p>
+  </div>
+`;
+
+// es una forma de concatenar strings
+// usando backticks (``) y ${}
+/* const nombre = "Nico";
+const string = `hola me llamo ${nombre}`;
+
+const getUsers = (limit) => {
+  const usersDeApi = ["Nico", "Ada", "Grace", "Hedy"];
+  const url = `https://jsonplaceholder.typicode.com/users?limit=${limit}`;
+  return usersDeApi;
+}; */
+
+// spread operator
 // es una forma de copiar un objeto o array
 // y asignarlo a una nueva variable
 
-// template literals
-// es una forma de concatenar strings
-// usando backticks (``) y ${}
+const estudiante = {
+  nombre: "Nico",
+  edad: 30,
+  direccion: {
+    calle: "Mitre",
+    numero: 123,
+    otro: {
+      timbre: "A",
+    },
+  },
+};
+
+// nuevo estudiante, igual al anterior, excepto por la edad
+
+const estudiante2 = {
+  ...estudiante,
+  edad: 18,
+  direccion: {
+    ...estudiante.direccion,
+    otro: {
+      ...estudiante.direccion.otro,
+      timbre: "Z",
+    },
+  },
+};
+
+//console.table([estudiante.direccion, estudiante2.direccion]);
+
+/* const getNewStudent = () => {
+  const estudiante3 = structuredClone(estudiante);
+  estudiante3.timbre = "H";
+  return estudiante3;
+}; */
+
+const estudiante4 = JSON.parse(JSON.stringify(estudiante));
+//console.log(estudiante4.nombre);
+
+const direccion = {
+  calle: "Mitre",
+  numero: 123,
+};
+
+const profesor = {
+  nombre: "Nico",
+  direccion: direccion,
+  /* direccion: {
+    ...direccion,
+  }, */
+};
+
+const profesor2 = {
+  ...profesor,
+  nombre: "Ada",
+  direccion: {
+    ...profesor.direccion,
+    calle: "San Martin",
+  },
+};
+
+direccion.calle = "Mitre";
+
+//console.table([profesor, profesor2]);
+
+const numeros = [1, 2, 3, 4, 5];
+const numeros2 = [...numeros, 400];
+console.table([numeros, numeros2]);
 
 // default parameters
 // es una forma de asignar valores por defecto a los parametros de una funcion
+
+function saludar(nombre = "Nico") {
+  console.log(`hola soy ${nombre}`);
+}
+
+const saludar1 = (nombre = "Nico") => {
+  console.log(`hola soy ${nombre}`);
+};
+
+const saludar2 = ({ nombre = "Nico", direccion }) => {
+  console.log(`hola soy ${nombre}, vivo en ${direccion}`);
+};
+
+saludar2({
+  nombre: "Nico",
+  direccion: "Mitre 123",
+});
+
+// rest operator
+// es una forma de recibir un numero indeterminado de parametros
+
+const sumarTodo = (...args) => {
+  console.log(" ARGS ES DEL TIPO ", Array.isArray(args));
+
+  let suma = 0;
+  for (let i = 0; i < args.length; i++) {
+    suma += args[i];
+  }
+
+  return suma;
+};
+
+console.log(sumarTodo(1, 10, 43, 345, 345));
 
 // ARRAYS
 
@@ -191,3 +308,7 @@ ada.saludar(); */
 const grace = new Estudiante("Grace", "Hopper", 123);
 grace.saludar(); */
 //
+
+/* 
+MAP FILTER FIND 
+*/
