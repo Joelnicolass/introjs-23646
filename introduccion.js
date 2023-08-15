@@ -37,7 +37,7 @@ const persona = {
 };
 
 const estoEsUnString = JSON.stringify(persona);
-console.log(estoEsUnString);
+//console.log(estoEsUnString);
 
 //console.log(`hola soy ${persona.nombre}`);
 
@@ -74,8 +74,8 @@ alguien.ciudad = "CABA";
 //console.log(ciudad);
 
 // destructuring por posicion
-const arr = ["Nico", "Perez", "Bariloche"];
-const [primer, segundo, tercer, cuarto] = arr;
+//const arr = ["Nico", "Perez", "Bariloche"];
+//const [primer, segundo, tercer, cuarto] = arr;
 //console.log(cuarto);
 
 // spread operator
@@ -136,8 +136,6 @@ arr1.push(1);
 console.log(arr1);
 console.log(arr3);
 
-const nombres = ["Ada", "Grace", "Hedy", "Radia"];
-
 const arrStrToUpperCase = (arr) => arr.map((el) => el.toUpperCase());
 
 const nombresMayuscula = (nombres) => {
@@ -191,3 +189,52 @@ ada.saludar(); */
 const grace = new Estudiante("Grace", "Hopper", 123);
 grace.saludar(); */
 //
+
+// MAP FILTER FIND FOREACH
+
+const nombres = ["Ada", "Grace", "Hedy", "Radia"];
+
+const mapeo = nombres.map((nombre, i) => {
+  return `${i} - ${nombre}`;
+});
+
+const personas = [
+  {
+    nombre: "Ada",
+    email: "ada@test.com",
+  },
+  {
+    nombre: "Grace",
+    email: "grace@test.com",
+  },
+];
+
+const ada = personas.find((persona) => {
+  return persona.email === "ada@test.com";
+});
+
+const todosMenosAda = nombres.filter((nombre) => {
+  return nombre === "Adas";
+});
+
+console.log(todosMenosAda);
+
+const productos = [
+  {
+    id: 1,
+    nombre: "Remera",
+  },
+  {
+    id: 2,
+    nombre: "Pantalon",
+  },
+];
+const objetosVendidos = [];
+
+const vender = (id) => {
+  const producto = productos.find((prod) => prod.id === id);
+
+  const newListProductos = productos.filter((prod) => prod.id !== id);
+  const newListObjetosVendidos = [...objetosVendidos, producto];
+  //
+};
