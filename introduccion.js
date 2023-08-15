@@ -307,7 +307,6 @@ const grace = new Estudiante("Grace", "Hopper", 123);
 grace.saludar(); */
 //
 
-<<<<<<< HEAD
 // MAP FILTER FIND FOREACH
 
 const nombres = ["Ada", "Grace", "Hedy", "Radia"];
@@ -356,8 +355,3 @@ const vender = (id) => {
   const newListObjetosVendidos = [...objetosVendidos, producto];
   //
 };
-=======
-/* 
-MAP FILTER FIND 
-*/
->>>>>>> 0d0b10f4833ecff84d1937ea4f47f4ba14d06b23
